@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gray-100: #e6e6e6;
+    --gray-200: #c9c9c9;
+    --pink-bg: #ffd2d8;
+
+    --btn-clr: rgb(255, 0, 89);
+    --light-text: #fff;
+    --active-clr: orange;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+    align-content: center;
+}
+
+.m-1 {
+    margin-top: 1rem;
+}
+
+.m-2 {
+    margin-top: 2rem;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+.p-3 {
+    padding: 3rem;
+}
+
+img {
+    max-width: 70%;
+}
+
+/* NAV */
+.navbar {
+    color: var(--light-text);
+    padding-block: 1rem;
+    list-style: none;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.container, .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    padding-inline: 1rem;
+    margin-inline: auto;
+}
+
+.navbar {   
+    .container {
+        justify-content: space-between;
+        max-width: 800px;
+    }
+}
+
+.nav-links {
+    gap: 2rem;
+    list-style: none;
+}
+
+a.active {
+    color: var(--active-clr);
+}
+
+/* HOME */
+.hero {
+    background-color: var(--gray-100);
+    gap: 4rem;
+}
+
+.btn {
+    background-color: var(--btn-clr);
+    color: var(--light-text);
+    font-family: 'Times New Roman', Times, serif;
+    padding: 1rem;
+}
+
+.offers {
+    background-color: var(--pink-bg);
+}
+
+/* FOOTER */
+footer {
+    background-color: #313131;
+    padding-block: 2rem;
+    color: gray;
+}
