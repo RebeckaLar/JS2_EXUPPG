@@ -101,6 +101,11 @@ a.active {
     background-color: var(--pink-bg);
 }
 
+/* CONTACT */
+.contact-form {
+    box-shadow: 10px 10px 10px 10px #333;
+}
+
 /* FOOTER */
 footer {
     background-color: #313131;

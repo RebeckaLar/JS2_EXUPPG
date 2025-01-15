@@ -5,7 +5,7 @@ const Form = () => {
 
     const {
         form, 
-        error,
+        errors,
         handleChange,
         handleSubmit
     } = useForm({
@@ -18,9 +18,10 @@ const Form = () => {
 
     const onSubmit = (e) => {
         handleSubmit(e, async(values) => {
-            const res = await fetch ('url', {
-                body: JSON.stringify(values)
-            })
+            // const res = await fetch ('url', {
+            //     body: JSON.stringify(values)
+            // })
+            console.log(values)
         })
     }
 
@@ -34,13 +35,13 @@ const Form = () => {
         id='fullName'
         type='text'
         // value={FormInput.fullName}
-        value={form.fullName}
+        value={form?.fullName}
         onChange={handleChange}
         />
     </form>
-    <div>
+    {/* <div>
         <p>Name: {}</p>
-    </div>
+    </div> */}
     </>
   )
 }
