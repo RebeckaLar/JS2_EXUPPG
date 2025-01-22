@@ -6,7 +6,7 @@ const FormInput = ({className, errorMsg, label, name, id, ...rest}) => {
         <label htmlFor={id}>{ label }</label>
         <input id={id} name={name} {...rest} />
         { errorMsg && <p className='invalid-input'>{ errorMsg }</p>}
-        <p className='invalid-input'>Error message</p>
+        {/* <p className='invalid-input'>Error message</p> */}
     </div>
   )
 }

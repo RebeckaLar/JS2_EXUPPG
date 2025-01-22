@@ -6,8 +6,10 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import RootLayouts from './layouts/RootLayouts'
 import Home from './pages/Home'
 import Products from './pages/Products'
+import ProductItem from './components/ProductItem'
 import Contact from './pages/Contact'
 import Checkout from './pages/Checkout'
+import NotFound from './pages/NotFound'
 
 import LoginLayouts from './layouts/LoginLayouts'
 import Login from './pages/Login'
@@ -32,8 +34,10 @@ createRoot(document.getElementById('root')).render(
         <Route element={ <RootLayouts /> }>
           <Route path ='/' element={ <Home /> } />
           <Route path ='/products' element={ <Products /> } />
+          <Route path ='/products/:productItem' element={ <ProductItem /> } />
           <Route path ='/contact' element={ <Contact /> } />
           <Route path ='/checkout' element={ <Checkout /> } />
+          <Route path='*' element={ <NotFound />}/>
         </Route>
 
         <Route element={ <LoginLayouts /> }>

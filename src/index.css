@@ -106,6 +106,10 @@ a.active {
     box-shadow: 10px 10px 10px 10px #333;
 }
 
+.invalid-input {
+    color: firebrick;
+}
+
 /* FOOTER */
 footer {
     background-color: #313131;

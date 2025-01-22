@@ -1,14 +1,9 @@
-import useForm from "../hooks/useForm"
 import FormInput from "./FormInput"
+import useForm from "../hooks/useForm"
 
 const Form = () => {
 
-    const {
-        form, 
-        errors,
-        handleChange,
-        handleSubmit
-    } = useForm({
+    const {form, errors, handleChange, handleSubmit} = useForm({
     fullName: '',
     email: '',
     password: '',
@@ -17,6 +12,7 @@ const Form = () => {
     })
 
     const onSubmit = (e) => {
+        // e.preventDefault()
         handleSubmit(e, async(values) => {
             // const res = await fetch ('url', {
             //     body: JSON.stringify(values)
@@ -27,25 +23,25 @@ const Form = () => {
 
   return (
     <>
-    <form noValidate onSubmit={onSubmit} className='container justify-center'>
+    <form onSubmit={onSubmit} className='container justify-center'>
         <FormInput 
         className='m-2'
         label='Your Name'
         name='fullName'
         id='fullName'
         type='text'
-        // value={FormInput.fullName}
-        value={form?.fullName}
+        value={form.fullName}
         onChange={handleChange}
+        errorMsg={errors.fullName}
         />
+
+        <button>Submit</button>
     </form>
-    {/* <div>
-        <p>Name: {}</p>
-    </div> */}
+    <div>
+        <p>Name: {form.fullName}</p>
+    </div>
     </>
   )
 }
-// console.log(FormInput.phone)
-
 
 export default Form

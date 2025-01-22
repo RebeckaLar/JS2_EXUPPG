@@ -1,6 +1,7 @@
 import { useState } from "react"
+import { validate } from "../utils/validate"
 
-const useForm = (formData) => {
+function useForm(formData) {
 
     const [form, setForm] = useState({...formData})
     const [errors, setErrors] = useState({})
@@ -16,18 +17,15 @@ const useForm = (formData) => {
 
     const handleSubmit = (e, cb) => {
         e.preventDefault()
-        console.log('hej')
-        //VALIDERING
 
-        cb(form);
+        if(!validate(form, setErrors)) {
+            return
+        }
+
+        cb(form)
     }
 
-  return (
-    form,
-    errors,
-    handleChange,
-    handleSubmit
-  )
+    return { form, errors, handleChange, handleSubmit }
 }
 
 export default useForm
