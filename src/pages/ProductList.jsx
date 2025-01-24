@@ -32,18 +32,19 @@ const ProductList = () => {
     //     ))}
     //   </div>
     // </div>
-    <div>
+    <div className='product-list flex-col container'>
       <h1>Product List</h1>
             {
         products.map((product) => (
           // <li key={product._id}><Link>{product.name}</Link></li>
-          <li 
+          <div 
+          className='flex-auto'
           key={product._id} 
           onClick={() => handleProductClick(product)}>
             <Link 
-              to={`/productList/${product._id}`}>{(product.name + product.price)}
+              to={`/productList/${product._id}`}>{(product.name + ' ' + product.price + product.images[0])}
             </Link>
-          </li>
+          </div>
         ))
       }
     </div>

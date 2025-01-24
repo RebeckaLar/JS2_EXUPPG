@@ -8,8 +8,8 @@ const Home = () => {
     <div className="hero flex justify-center align-center">
       <div className=''>
         <p>WELCOME TO BMARKETO SHOP</p>
-          <h1 className='m-1'>Exclusive Chair gold Collection.</h1>
-          <button className='btn m-1'>SHOP NOW</button>
+          <h1 className='mt-1'>Exclusive Chair gold Collection.</h1>
+          <button className='btn mt-1'>SHOP NOW</button>
       </div>
       <div>
         <img src={Placeholder625}></img>

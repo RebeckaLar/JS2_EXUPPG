@@ -48,15 +48,24 @@ const ProductDetails = () => {
 //     console.log(product)
 //   }, [productId, products, setSelectedProduct]);
 
-
+ let images = selectedProduct.image
   return (
-    <div>
+    <div className='product-details border'>
       {/* <h1>{selectedProduct.name}</h1>
       <img src={selectedProduct.image} alt={selectedProduct.name} />
       <p>{selectedProduct.description}</p>
       <p>Price: ${selectedProduct.price}</p> */}
-        <h1>{selectedProduct.name}</h1>
-      <img src={selectedProduct.image} alt={selectedProduct.name} />
+      <h1>{selectedProduct.name}</h1>
+      {/* {
+      selectedProduct.images.map(image => <img src={image.url} key={image.url} alt={selectedProduct.name}  />)}
+      { */}
+
+{/* {selectedProduct.image.map((image, index) => (
+  <div className="point" key={index}>
+  <div className={`${image === selectedImage && "current-point"}`}></div>
+))} */}
+
+    <img src={selectedProduct.images} alt={selectedProduct.name} />
       <p>{selectedProduct.description}</p>
       <p>Price: ${selectedProduct.price}</p>
     </div>
