@@ -23,71 +23,99 @@ import { ProductsProvider } from './contexts/ProductsContext'
 import ProductList from './pages/ProductList'
 import ProductDetails from './components/ProductDetails'
 
-const router = createBrowserRouter(
-  {
-    element: <RootLayouts />,
-    children: [
-      {
-        index: true,
-        element: <Home />
-      },
-      {
-        path: 'productList',
-        element: <ProductList />
-      },
-      {
-        path: 'productList/:productId',
-        element: <ProductDetails />
-      },
-      {
-        path: 'contact',
-        element: <Contact />
-      },
-      {
-        path: 'checkout',
-        element: <Checkout />
-      },
-      {
-        path: '*',
-        element: <NotFound />
-      },
-    ]
-  },
-  {
-    element: <LoginLayouts />,
-    children: [
-      {
-        path: 'login',
-        element: <Login />
-      },
-      {
-        path: 'register',
-        element: <Register />
-      },
-    ]
-  },
-  {
-    element: <LoggedInLayouts />,
-    children: [
-      {
-        path: 'orderhistory',
-        element: <OrderHistory />
-      },
-    ]
-  },
-  {
-    element: <Footer />
-  }
-)
+// const router = createBrowserRouter(
+//   {
+//     element: <RootLayouts />,
+//     children: [
+//       {
+//         index: true,
+//         element: <Home />
+//       },
+//       {
+//         path: 'productList',
+//         element: <ProductList />
+//       },
+//       {
+//         path: 'productList/:productId',
+//         element: <ProductDetails />
+//       },
+//       {
+//         path: 'contact',
+//         element: <Contact />
+//       },
+//       {
+//         path: 'checkout',
+//         element: <Checkout />
+//       },
+//       {
+//         path: '*',
+//         element: <NotFound />
+//       },
+//     ]
+//   },
+//   {
+//     element: <LoginLayouts />,
+//     children: [
+//       {
+//         path: 'login',
+//         element: <Login />
+//       },
+//       {
+//         path: 'register',
+//         element: <Register />
+//       },
+//     ]
+//   },
+//   {
+//     element: <LoggedInLayouts />,
+//     children: [
+//       {
+//         path: 'orderhistory',
+//         element: <OrderHistory />
+//       },
+//     ]
+//   },
+//   {
+//     element: <Footer />
+//   }
+// )
 
 // måsvingar för att kunna skriva JS/element
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ProductsProvider>
-    {/* <BrowserRouter> */}
-      <RouterProvider router={router}/>
-      {/* <Footer /> */}
-    {/* </BrowserRouter> */}
+    <BrowserRouter>
+        {/* routes är som en switch, hette switch, 
+        tittar på url och ge nngt av elementen såsom 
+        home faq osv. */}
+        
+      <Routes> 
+            {/* vad har den för path, alltså hur ska url se ut för
+            att den ska vara aktiv, */}
+        <Route element={ <RootLayouts /> }>
+          <Route path ='/' element={ <Home /> } />
+          {/* <Route path ='/products' element={ <Products /> } />
+          <Route path ='/products/:productItem' element={ <ProductItem /> } /> */}
+          <Route path ='/productList' element={ <ProductList /> } />
+          <Route path ='/productList/:productDetails' element={ <ProductDetails /> } />
+          <Route path ='/contact' element={ <Contact /> } />
+          <Route path ='/checkout' element={ <Checkout /> } />
+          <Route path='*' element={ <NotFound />}/>
+        </Route>
+
+        <Route element={ <LoginLayouts /> }>
+          <Route path='/login' element={ <Login /> } />
+          <Route path='/register' element={ <Register /> } />
+        </Route>
+
+        <Route element={ <LoggedInLayouts /> }>
+          <Route path ='/orderhistory' element={ <OrderHistory /> } />
+        </Route>
+
+      </Routes>
+      <Footer />
+
+    </BrowserRouter>
     </ProductsProvider>
   </StrictMode>
 )
