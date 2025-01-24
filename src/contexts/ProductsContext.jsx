@@ -5,7 +5,7 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 export const ProductsContext = createContext();
 
 // Context provider component
-const ProductsProvider = ({ children }) => {
+export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]); //products to store fetched prodcut data
   const [selectedProduct, setSelectedProduct] = useState(null); //to store current.sel.prod. when clicked, to updated sel.prod
 

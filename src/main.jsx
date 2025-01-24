@@ -19,10 +19,14 @@ import LoggedInLayouts from './layouts/LoggedInLayouts'
 import OrderHistory from './pages/OrderHistory'
 
 import Footer from './components/Footer'
+import { ProductsProvider } from './contexts/ProductsContext'
+import ProductList from './pages/ProductList'
+import ProductDetails from './components/ProductDetails'
 
 // måsvingar för att kunna skriva JS/element
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <ProductsProvider>
     <BrowserRouter>
         {/* routes är som en switch, hette switch, 
         tittar på url och ge nngt av elementen såsom 
@@ -33,8 +37,10 @@ createRoot(document.getElementById('root')).render(
             att den ska vara aktiv, */}
         <Route element={ <RootLayouts /> }>
           <Route path ='/' element={ <Home /> } />
-          <Route path ='/products' element={ <Products /> } />
-          <Route path ='/products/:productItem' element={ <ProductItem /> } />
+          {/* <Route path ='/products' element={ <Products /> } />
+          <Route path ='/products/:productItem' element={ <ProductItem /> } /> */}
+          <Route path ='/productList' element={ <ProductList /> } />
+          <Route path ='/productList/:productDetails' element={ <ProductDetails /> } />
           <Route path ='/contact' element={ <Contact /> } />
           <Route path ='/checkout' element={ <Checkout /> } />
           <Route path='*' element={ <NotFound />}/>
@@ -53,5 +59,6 @@ createRoot(document.getElementById('root')).render(
       <Footer />
 
     </BrowserRouter>
+    </ProductsProvider>
   </StrictMode>
 )
