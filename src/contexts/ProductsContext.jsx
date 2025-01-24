@@ -2,7 +2,7 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 // Create the context
-export const ProductsContext = createContext();
+const ProductsContext = createContext();
 
 // Context provider component
 export const ProductsProvider = ({ children }) => {
@@ -19,6 +19,20 @@ export const ProductsProvider = ({ children }) => {
 
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    if (products.length > 0) {
+      const savedProduct = localStorage.getItem('selectedProduct');
+      if (savedProduct) {
+        const parsedProduct = JSON.parse(savedProduct);
+        // Ensure the product exists in the current products list
+        const productExists = products.some((prod) => prod.id === parsedProduct.id);
+        if (productExists) {
+          setSelectedProduct(parsedProduct);
+        }
+      }
+    }
+  }, [products]); // Only run this effect when products are loaded
 
   return (
     <ProductsContext.Provider value={{ products, selectedProduct, setSelectedProduct }}>

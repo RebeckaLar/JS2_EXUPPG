@@ -40,7 +40,7 @@ createRoot(document.getElementById('root')).render(
           {/* <Route path ='/products' element={ <Products /> } />
           <Route path ='/products/:productItem' element={ <ProductItem /> } /> */}
           <Route path ='/productList' element={ <ProductList /> } />
-          <Route path ='/productList/:productDetails' element={ <ProductDetails /> } />
+          <Route path ='/productList/:productId' element={ <ProductDetails /> } />
           <Route path ='/contact' element={ <Contact /> } />
           <Route path ='/checkout' element={ <Checkout /> } />
           <Route path='*' element={ <NotFound />}/>
