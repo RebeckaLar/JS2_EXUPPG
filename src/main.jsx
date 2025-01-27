@@ -19,7 +19,7 @@ import LoggedInLayouts from './layouts/LoggedInLayouts'
 import OrderHistory from './pages/OrderHistory'
 
 import Footer from './components/Footer'
-import { ProductsProvider } from './contexts/ProductsContext'
+import ProductsProvider from './contexts/ProductsContext'
 import ProductList from './pages/ProductList'
 import ProductDetails from './components/ProductDetails'
 
@@ -97,7 +97,7 @@ createRoot(document.getElementById('root')).render(
           {/* <Route path ='/products' element={ <Products /> } />
           <Route path ='/products/:productItem' element={ <ProductItem /> } /> */}
           <Route path ='/productList' element={ <ProductList /> } />
-          <Route path ='/productList/:productDetails' element={ <ProductDetails /> } />
+          <Route path ='/productList/:productId' element={ <ProductDetails /> } />
           <Route path ='/contact' element={ <Contact /> } />
           <Route path ='/checkout' element={ <Checkout /> } />
           <Route path='*' element={ <NotFound />}/>
