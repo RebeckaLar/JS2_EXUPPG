@@ -23,7 +23,7 @@ const Form = () => {
 
   return (
     <>
-    <form onSubmit={onSubmit} className='container justify-center'>
+    <form onSubmit={onSubmit} className='container justify-center border'>
         <FormInput 
         className='m-2'
         label='Your Name'
@@ -35,7 +35,7 @@ const Form = () => {
         errorMsg={errors.fullName}
         />
 
-        <button>Submit</button>
+        <button className="btn">Submit</button>
     </form>
     <div>
         <p>Name: {form.fullName}</p>

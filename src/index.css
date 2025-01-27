@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
     margin: 0;
     padding: 0;
@@ -14,33 +16,18 @@
     --active-clr: orange;
 }
 
-.flex {
-    display: flex;
+a, li, ul {
+    text-decoration-style: none;
+    text-decoration: none;
 }
 
-.justify-center {
-    justify-content: center;
+input {
+    border: 2px solid #333;
 }
 
 .align-center {
     align-items: center;
     align-content: center;
-}
-
-.m-1 {
-    margin-top: 1rem;
-}
-
-.m-2 {
-    margin-top: 2rem;
-}
-
-.p-2 {
-    padding: 2rem;
-}
-
-.p-3 {
-    padding: 3rem;
 }
 
 img {
@@ -49,18 +36,14 @@ img {
 
 /* NAV */
 .navbar {
-    color: var(--light-text);
+    /* color: var(--light-text); */
     padding-block: 1rem;
     list-style: none;
-
-    a {
-        text-decoration: none;
-    }
 }
 
 .container, .nav-links {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .container {

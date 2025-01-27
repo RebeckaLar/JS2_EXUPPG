@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router'
 
 import RootLayouts from './layouts/RootLayouts'
 import Home from './pages/Home'
@@ -19,10 +19,71 @@ import LoggedInLayouts from './layouts/LoggedInLayouts'
 import OrderHistory from './pages/OrderHistory'
 
 import Footer from './components/Footer'
+import ProductsProvider from './contexts/ProductsContext'
+import ProductList from './pages/ProductList'
+import ProductDetails from './components/ProductDetails'
+
+// const router = createBrowserRouter(
+//   {
+//     element: <RootLayouts />,
+//     children: [
+//       {
+//         index: true,
+//         element: <Home />
+//       },
+//       {
+//         path: 'productList',
+//         element: <ProductList />
+//       },
+//       {
+//         path: 'productList/:productId',
+//         element: <ProductDetails />
+//       },
+//       {
+//         path: 'contact',
+//         element: <Contact />
+//       },
+//       {
+//         path: 'checkout',
+//         element: <Checkout />
+//       },
+//       {
+//         path: '*',
+//         element: <NotFound />
+//       },
+//     ]
+//   },
+//   {
+//     element: <LoginLayouts />,
+//     children: [
+//       {
+//         path: 'login',
+//         element: <Login />
+//       },
+//       {
+//         path: 'register',
+//         element: <Register />
+//       },
+//     ]
+//   },
+//   {
+//     element: <LoggedInLayouts />,
+//     children: [
+//       {
+//         path: 'orderhistory',
+//         element: <OrderHistory />
+//       },
+//     ]
+//   },
+//   {
+//     element: <Footer />
+//   }
+// )
 
 // måsvingar för att kunna skriva JS/element
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <ProductsProvider>
     <BrowserRouter>
         {/* routes är som en switch, hette switch, 
         tittar på url och ge nngt av elementen såsom 
@@ -33,8 +94,10 @@ createRoot(document.getElementById('root')).render(
             att den ska vara aktiv, */}
         <Route element={ <RootLayouts /> }>
           <Route path ='/' element={ <Home /> } />
-          <Route path ='/products' element={ <Products /> } />
-          <Route path ='/products/:productItem' element={ <ProductItem /> } />
+          {/* <Route path ='/products' element={ <Products /> } />
+          <Route path ='/products/:productItem' element={ <ProductItem /> } /> */}
+          <Route path ='/productList' element={ <ProductList /> } />
+          <Route path ='/productList/:productId' element={ <ProductDetails /> } />
           <Route path ='/contact' element={ <Contact /> } />
           <Route path ='/checkout' element={ <Checkout /> } />
           <Route path='*' element={ <NotFound />}/>
@@ -53,5 +116,6 @@ createRoot(document.getElementById('root')).render(
       <Footer />
 
     </BrowserRouter>
+    </ProductsProvider>
   </StrictMode>
 )
