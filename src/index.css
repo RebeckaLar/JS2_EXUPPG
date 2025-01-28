@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
-* {
+html, body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    height: 100%;
 }
 
 :root {
@@ -14,6 +13,10 @@
     --btn-clr: rgb(255, 0, 89);
     --light-text: #fff;
     --active-clr: orange;
+}
+
+h1, h2, h3 {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 a, li, ul {
@@ -30,8 +33,12 @@ input {
     align-content: center;
 }
 
-img {
-    max-width: 70%;
+.img501 {
+    max-width: 501px;
+}
+
+.img120 {
+    max-width: 120px;
 }
 
 /* NAV */
