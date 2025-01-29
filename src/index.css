@@ -93,7 +93,7 @@ a.active {
 
 /* CONTACT */
 .contact-form {
-    box-shadow: 10px 10px 10px 10px #333;
+    /* box-shadow: 10px 10px 10px 10px #333; */
 }
 
 .invalid-input {

@@ -19,6 +19,7 @@ function useForm(formData) {
         e.preventDefault()
 
         if(!validate(form, setErrors)) {
+            console.log('invalid')
             return
         }
 
