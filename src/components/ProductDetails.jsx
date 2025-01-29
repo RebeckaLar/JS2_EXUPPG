@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useProducts } from '../contexts/ProductsContext'; //Data hämtas från contexten, ingen data fångas här inne
-// import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { MdAddShoppingCart } from "react-icons/md";
 
 
