@@ -22,6 +22,7 @@ import Footer from './components/Footer'
 import ProductsProvider from './contexts/ProductsContext'
 import ProductList from './pages/ProductList'
 import ProductDetails from './components/ProductDetails'
+import CartContextProvider from './contexts/CartContextProvider'
 
 // const router = createBrowserRouter(
 //   {
@@ -84,38 +85,40 @@ import ProductDetails from './components/ProductDetails'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ProductsProvider>
-    <BrowserRouter>
-        {/* routes är som en switch, hette switch, 
-        tittar på url och ge nngt av elementen såsom 
-        home faq osv. */}
-        
-      <Routes> 
-            {/* vad har den för path, alltså hur ska url se ut för
-            att den ska vara aktiv, */}
-        <Route element={ <RootLayouts /> }>
-          <Route path ='/' element={ <Home /> } />
-          {/* <Route path ='/products' element={ <Products /> } />
-          <Route path ='/products/:productItem' element={ <ProductItem /> } /> */}
-          <Route path ='/productList' element={ <ProductList /> } />
-          <Route path ='/productList/:productId' element={ <ProductDetails /> } />
-          <Route path ='/contact' element={ <Contact /> } />
-          <Route path ='/checkout' element={ <Checkout /> } />
-          <Route path='*' element={ <NotFound />}/>
-        </Route>
+      <CartContextProvider>
+        <BrowserRouter>
+            {/* routes är som en switch, hette switch, 
+            tittar på url och ge nngt av elementen såsom 
+            home faq osv. */}
+            
+          <Routes> 
+                {/* vad har den för path, alltså hur ska url se ut för
+                att den ska vara aktiv, */}
+            <Route element={ <RootLayouts /> }>
+              <Route path ='/' element={ <Home /> } />
+              {/* <Route path ='/products' element={ <Products /> } />
+              <Route path ='/products/:productItem' element={ <ProductItem /> } /> */}
+              <Route path ='/productList' element={ <ProductList /> } />
+              <Route path ='/productList/:productId' element={ <ProductDetails /> } />
+              <Route path ='/contact' element={ <Contact /> } />
+              <Route path ='/checkout' element={ <Checkout /> } />
+              <Route path='*' element={ <NotFound />}/>
+            </Route>
 
-        <Route element={ <LoginLayouts /> }>
-          <Route path='/login' element={ <Login /> } />
-          <Route path='/register' element={ <Register /> } />
-        </Route>
+            <Route element={ <LoginLayouts /> }>
+              <Route path='/login' element={ <Login /> } />
+              <Route path='/register' element={ <Register /> } />
+            </Route>
 
-        <Route element={ <LoggedInLayouts /> }>
-          <Route path ='/orderhistory' element={ <OrderHistory /> } />
-        </Route>
+            <Route element={ <LoggedInLayouts /> }>
+              <Route path ='/orderhistory' element={ <OrderHistory /> } />
+            </Route>
 
-      </Routes>
-      <Footer />
+          </Routes>
+          <Footer />
 
-    </BrowserRouter>
+        </BrowserRouter>
+      </CartContextProvider>
     </ProductsProvider>
   </StrictMode>
 )
