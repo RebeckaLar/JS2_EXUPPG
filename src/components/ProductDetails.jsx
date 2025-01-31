@@ -49,8 +49,14 @@ useEffect(() => {
           <p className='mt-1'>{selectedProduct.description}</p>
           <hr className="my-8 h-0.5 border-t-0 bg-neutral-300 dark:bg-gray/5" />
           <p>Price: ${selectedProduct.price}</p>
-          <button className='flex gap-2 btn mt-3'>Add to Cart <MdAddShoppingCart /></button>
-          <p className='mt-5'>Category: {selectedProduct.category}, </p>
+          <button 
+            className='flex gap-2 btn mt-3'
+            // onClick={addToCart}
+            >
+            Add to Cart 
+            <MdAddShoppingCart />
+            </button>
+          <p className='m-5'>Category: {selectedProduct.category}, </p>
         </div>
       </div>
     </div>
