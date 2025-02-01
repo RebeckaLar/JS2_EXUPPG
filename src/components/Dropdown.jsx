@@ -19,8 +19,8 @@ const Dropdown = ({ children }) => {
 
     {
         isOpen && (
-            <div className='p-3 mt-2 absolute bg-rose-300 w-[400px] right-0 z-10 rounded-md shadow-lg'>
-                <div className="py-1"><ShoppingCart /></div>
+            <div className='p-4 mt-2 absolute bg-rose-300 w-[400px] right-0 z-10 rounded-md shadow-lg'>
+                <div className="py-1"><ShoppingCart setIsOpen={setIsOpen}/></div>
             </div>
         )
     }
