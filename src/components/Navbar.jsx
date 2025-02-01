@@ -5,8 +5,6 @@ import { IoMdCart } from "react-icons/io";
 
 const Navbar = () => {
 
-  // const { totalQuantity } = 
-
   return (
     <div className='navbar list-none p-4'>
         <div className='flex container justify-between'>
@@ -16,7 +14,7 @@ const Navbar = () => {
                 <li><NavLink to="/productList" className='nav-link'>Products</NavLink></li>
                 <li><NavLink to="/contact" className='nav-link'>Contact</NavLink></li>
                 <li><NavLink to="/login" className='nav-link'>Login</NavLink></li>
-                <li><NavLink to="/checkout" className='nav-link'><IoMdCart /></NavLink></li>
+                {/* <li><NavLink to="/checkout" className='nav-link'><IoMdCart /></NavLink></li> */}
                 <li><Dropdown className='relative'><IoMdCart /></Dropdown></li>
             </ul>
         </div>

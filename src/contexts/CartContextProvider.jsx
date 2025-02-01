@@ -25,7 +25,8 @@ const CartContextProvider = ({ children }) => {
     const totalPrice = getTotalPrice(cart)
 
     const addToCart = (product) => {
-        const item = cart.find(cartItem => cartItem.product.id === product.id)
+        const item = cart.find(cartItem => cartItem.product._id === product._id)
+        console.log(item) //den hittar yipieeeeeeee
 
         item 
         ? item.quantity++
@@ -33,19 +34,19 @@ const CartContextProvider = ({ children }) => {
     }
     
     const removeOne = (productyId) => {
-        const item = cart.find(cartItem => cartItem.product.id === product.id)
+        const item = cart.find(cartItem => cartItem.product._id === product._id)
 
         let newCart = [...cart]
 
         item.quantity <= 1
-        ? newCart = state.cart.filter(item => item.product.id !== productyId)
+        ? newCart = state.cart.filter(item => item.product._id !== productyId)
         : item.quantity --
         
         setCart(newCart)
     }
 
     const removeItem = (productId) => {
-        setCart(state => state.filter(item => item.product.id !== productId))
+        setCart(state => state.filter(item => item.product._id !== productId))
     }
 
     const clearCart = () => {

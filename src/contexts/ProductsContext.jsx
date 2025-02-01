@@ -5,7 +5,8 @@ export const ProductsContext = createContext();
 function ProductsProvider({ children }) {
   const [productId, setProductId] = useState()
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(); //to store current.sel.prod. when clicked, to updated sel.prod
+  const [selectedProduct, setSelectedProduct] = useState(); 
+  //to store current.sel.prod. when clicked, to updated sel.prod
   const [imgSrc, setImgSrc] = useState('')
 
   useEffect(() => {

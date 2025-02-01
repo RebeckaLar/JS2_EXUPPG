@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { useProducts } from '../contexts/ProductsContext'; //Data hämtas från contexten, ingen data fångas här inne
+import { useProducts } from '../contexts/ProductsContext'; 
+import { useCart } from '../contexts/CartContextProvider';
+//Data hämtas från contexten
 import { MdAddShoppingCart } from "react-icons/md";
 
 
 const ProductDetails = () => {
-  const { productId } = useParams()
+  const { productId } = useParams() 
+  //hämtar enskild produkt utan context, då endast denna sida kommer titta på produktdetaljerna
   const { products } = useProducts()
   const { setProductId } = useProducts()
   const { selectedProduct } = useProducts()
   const { setSelectedProduct } = useProducts()
   const { imgSrc } = useProducts()
   const { setImgSrc } = useProducts()
+  const { addToCart } = useCart()
 
 
 useEffect(() => {
@@ -20,8 +24,8 @@ useEffect(() => {
         try {
             const res = await fetch (`https://js2-ecommerce-api.vercel.app/api/products/${productId}`)
             const data = await res.json()
-            setSelectedProduct(data)
-            setImgSrc(data.images)
+            setSelectedProduct(data) //uppdaterar produktdetaljer till produkten användaren klickade på
+            setImgSrc(data.images) //uppdaterar produktbilderna
         }
         catch(err) {
             throw new Error('Could not find product')
@@ -31,6 +35,13 @@ useEffect(() => {
 }, []);
 
   if (!selectedProduct) return <div>Loading...</div>;
+  //om valda produkten inte hunnit uppdateras, visa Loading-text
+
+  
+  const handleCartClick = (selectedProduct) => {
+    console.log(selectedProduct)
+    addToCart(selectedProduct)
+  };
 
   return (
     <div className='flex center justify-center'>
@@ -51,8 +62,7 @@ useEffect(() => {
           <p>Price: ${selectedProduct.price}</p>
           <button 
             className='flex gap-2 btn mt-3'
-            // onClick={addToCart}
-            >
+            onClick={() => handleCartClick(selectedProduct)}>
             Add to Cart 
             <MdAddShoppingCart />
             </button>
